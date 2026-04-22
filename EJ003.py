@@ -47,39 +47,30 @@ LONGITUD_VALIDA = [16, 27, 24, 21, 24, 28]
 PREFIJOS_VALIDOS = ["BE", "FR", "SE", "CH", "ES", "HU"]
 
 
-def indice_prefijo(prefijo:str) -> bool:
+def indice_prefijo(prefijo:str) -> int:
     """
     Dado un valor (STR) determina el indice de un prefijo
     """
-    if PREFIJOS_VALIDOS.index(prefijo) == False:
-        return False
-    elif PREFIJOS_VALIDOS.index(prefijo) >= 0:
-        return PREFIJOS_VALIDOS.index(prefijo)
-    
-
-def validar_longitud(longitudes:str) -> bool:
-    es_valida = False
-
-    for longitudes_validas in LONGITUD_VALIDA:
-        if len(longitudes) == longitudes_validas:
-            es_valida = True
-    
-    return es_valida
-
-
+    try:
+        indice = PREFIJOS_VALIDOS.index(prefijo)
+    except:
+        indice = -1
+    return indice
 
 def validar_iban(iban:str) -> bool:
-   try:
-    indice_prefijo(iban[0:2])
-   except:
-       print("False")
-   pos_prefijo = indice_prefijo(iban[0:2])
-   if len(iban) == LONGITUD_VALIDA[pos_prefijo]:
-       return True
-   else:
-       return False
+    if indice_prefijo(iban[0:2]) >= 0:
+        if len(iban) == LONGITUD_VALIDA[indice_prefijo(iban[0:2])]:
+            return True
+        else:
+            return False
+    else:
+        return False
 
-print(validar_iban("BE1234567890123456"))      
+
+    
+print(validar_iban("BE12345678901234"))
+print(validar_iban("BE1234567890123490"))
+print(validar_iban("JP12345678901234"))        
     
 
 # PREFIJOS_VALIDOS.index(iban[0:2]) == len(LONGITUD_VALIDA.index(iban[0:2])):
