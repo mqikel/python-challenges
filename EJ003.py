@@ -34,19 +34,9 @@ SE141234567890123456
 Output:
 False
 """
-PREFIJOS_VALIDOS = ["BE", "FR", "SE", "CH", "ES", "HU"]
+# PREFIJOS_VALIDOS = ["BE", "FR", "SE", "CH", "ES", "HU"]
 
-def validar_prefijo(prefijo:str) -> bool:
-    """
-    Dado un valor (STR) determina si es un porefijo valido
-    """
-    es_valido = False
 
-    for prefijo_valido in PREFIJOS_VALIDOS:
-        if prefijo == prefijo_valido:
-            es_valido = True
-        
-    return es_valido
 
 # print(validar_prefijo("ES")) # --> los que devuelva
 # print(validar_prefijo("FR")) # --> los que devuelva
@@ -54,6 +44,18 @@ def validar_prefijo(prefijo:str) -> bool:
 
 
 LONGITUD_VALIDA = [16, 27, 24, 21, 24, 28]
+PREFIJOS_VALIDOS = ["BE", "FR", "SE", "CH", "ES", "HU"]
+
+
+def indice_prefijo(prefijo:str) -> bool:
+    """
+    Dado un valor (STR) determina el indice de un prefijo
+    """
+    if PREFIJOS_VALIDOS.index(prefijo) == False:
+        return False
+    elif PREFIJOS_VALIDOS.index(prefijo) >= 0:
+        return PREFIJOS_VALIDOS.index(prefijo)
+    
 
 def validar_longitud(longitudes:str) -> bool:
     es_valida = False
@@ -64,10 +66,20 @@ def validar_longitud(longitudes:str) -> bool:
     
     return es_valida
 
-print(validar_longitud("12345678901234564"))
-
 
 
 def validar_iban(iban:str) -> bool:
+   try:
+    indice_prefijo(iban[0:2])
+   except:
+       print("False")
+   pos_prefijo = indice_prefijo(iban[0:2])
+   if len(iban) == LONGITUD_VALIDA[pos_prefijo]:
+       return True
+   else:
+       return False
+
+print(validar_iban("BE1234567890123456"))      
     
 
+# PREFIJOS_VALIDOS.index(iban[0:2]) == len(LONGITUD_VALIDA.index(iban[0:2])):
