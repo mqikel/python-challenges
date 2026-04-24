@@ -15,8 +15,6 @@
          
 # print(nuevo_texto.lower())
 
-
-
 def to_snake_case(texto:str) -> str:
     nuevo_texto = ""
     for letra in texto:
