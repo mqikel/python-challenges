@@ -80,39 +80,39 @@ EJEMPLOS:
     # cliente["pedidos"] -> 3
 """
 
-# from t010 import crear_cliente, registrar_pedido
+# from t010 import create_client, register_order
 
 
-# def contar_ventas(ventas:list) -> dict:
+# def count_sales(sales:list) -> dict:
 #     ...
 
-# def producto_mas_vendido(recuento:dict) -> str:
+# def top_selling_product(tally:dict) -> str:
 #     ...
 
-# def productos_con_minimo(recuento:dict, minimo:int) -> list:
+# def products_above_minimum(tally:dict, minimum:int) -> list:
 #     ...
 
-# def total_unidades(recuento:dict) -> int:
+# def total_units(tally:dict) -> int:
 #     ...
 
-# def registrar_compra(cliente:dict, producto:str, recuento:dict) -> None:
+# def register_purchase(client:dict, product:str, tally:dict) -> None:
 #     ...
 
 
-# --- Pruebas ---
-# ventas = ["camiseta", "gorra", "camiseta", "pantalon",
-#           "camiseta", "gorra", "zapatillas"]
-# recuento = contar_ventas(ventas)
-# print(recuento)
-# print(producto_mas_vendido(recuento))
-# print(productos_con_minimo(recuento, 2))
-# print(total_unidades(recuento))
+# --- Tests ---
+# sales = ["t-shirt", "cap", "t-shirt", "trousers",
+#          "t-shirt", "cap", "sneakers"]
+# tally = count_sales(sales)
+# print(tally)
+# print(top_selling_product(tally))       # "t-shirt"
+# print(products_above_minimum(tally, 2)) # ["t-shirt", "cap"]
+# print(total_units(tally))               # 7
 #
-# # Prueba de integracion con t010
-# cliente = crear_cliente("Ana", "ana@mail.com", "Madrid")
-# recuento_2 = {}
-# registrar_compra(cliente, "camiseta", recuento_2)
-# registrar_compra(cliente, "camiseta", recuento_2)
-# registrar_compra(cliente, "gorra", recuento_2)
-# print(recuento_2)
-# print(cliente)
+# # Integration test with t010
+# client = create_client("Ana", "ana@mail.com", "Madrid")
+# tally_2 = {}
+# register_purchase(client, "t-shirt", tally_2)
+# register_purchase(client, "t-shirt", tally_2)
+# register_purchase(client, "cap",     tally_2)
+# print(tally_2)   # {"t-shirt": 2, "cap": 1}
+# print(client)    # client["orders"] -> 3
