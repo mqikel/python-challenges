@@ -65,7 +65,7 @@ def crear_cliente(nombre:str, email:str, ciudad:str, pedidos:int) -> dict:
     y la va a convertir en un diccionario
     """
     cliente = {
-        "nombre": nombre,
+        "\nnombre": nombre,
         "email": email,
         "ciudad": ciudad,
         "pedidos": pedidos
