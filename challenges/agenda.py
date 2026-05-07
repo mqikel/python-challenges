@@ -21,13 +21,20 @@ numbers = [
     y muestre por pantalla el nombre, teléfono y email de cada contacto.
 
     INPUT: lista de numbers
-
     OUTPUT: print con la siguiente estructura
 
     Ana García | 612345678 | ana@email.com
     Carlos López | 698765432 | carlos@email.com
     Marta Ruiz | 655443322 | marta@email.com
 """
+
+def show_numbers():
+    for data in numbers:
+        print(data["name"], "|", data["number"], "|", data["email"])
+
+
+
+
 
 """
     Ejercicio 2: Ahora escríbeme una función llamada "find_number" que reciba
@@ -41,6 +48,16 @@ numbers = [
     resultado = find_number(numbers, "Pedro")
     # → None
 """
+
+def find_number(list:list, contact_name:str) -> dict:
+    for register in list:
+        if register["name"] == contact_name:
+            return register
+    return None
+
+
+resultado = find_number(numbers, "Ana Bohueles")
+print("+34", resultado["number"])
 
 """
     Ejercicio 3: Escríbeme una función llamada "add_number" que reciba la lista,
