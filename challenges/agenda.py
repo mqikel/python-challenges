@@ -13,7 +13,7 @@ numbers = [
     {"name": "David Moreno", "number": "617889900", "email": "david@email.com"},
     {"name": "Isabel Romero", "number": "668001122", "email": "isabel@email.com"},
     {"name": "Andrés Navarro", "number": "603223344", "email": "andres@email.com"},
-    {"name": "Carmen Vega", "number": "679445566", "email": "carmen@email.com"},
+    {"name": "Carmen Vega", "number": "679445566", "email": "carmen@email.com"}
 ]
 
 """
@@ -56,13 +56,24 @@ def find_number(list:list, contact_name:str) -> dict:
     return None
 
 
-resultado = find_number(numbers, "Ana Bohueles")
-print("+34", resultado["number"])
+# resultado = find_number(numbers, "Ana Bohueles")
+# print("+34", resultado["number"])
 
 """
     Ejercicio 3: Escríbeme una función llamada "add_number" que reciba la lista,
     un nombre, un teléfono y un email, y añada el nuevo contacto.
 """
+def add_number(list:list, name:str, number:str, email:str) -> dict:
+    new_number = {
+        "name":name,
+        "number":number,
+        "email":email
+    }
+    return list.append(new_number)
+
+
+
+
 
 """
     Ejercicio 4: Escribe una función llamada "edit_number" que reciba la lista de numbers, el nombre del contacto
@@ -70,4 +81,11 @@ print("+34", resultado["number"])
 
     EJEMPLO:
     update_number(numbers, "Ana García", "657899902")
+
 """
+
+def edit_number(list:list, name:str, new_number:str):
+    for register in list:
+        if register["name"] == name:
+            register["number"] = new_number
+            break #Esta instruccion hace que el bucle termine al encontrar el registro

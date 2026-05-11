@@ -30,20 +30,38 @@ def save_task(task:dict):
 
 # Create a method to find a task into db
 def find_task_by_title(task_title:str) -> dict:
-    return {}
+    for task in DB:
+        if task["title"] == task_title:
+            return task
+    return None
 
 # Create a method to find a task into db
-def filter_by_done(task_title:str):
-    pass
+def filter_by_done() -> list:
+    """
+    Filters all tasks that have been done ("done": True)
+    """
+    done_task = []
+    for task in DB:
+        if task["done"] == True:
+            done_task.append(task)
+    return done_task
+   
 
 # Delete
-def delete_by_titile(task_title:str) -> bool:
+def delete_by_title(task_title:str) -> bool:           
+    for task in DB:
+        if task["title"] == task_title:
+            DB.remove(task)
+            return True
     return False
+
+
 
 # Update task
 def update_task(modify_task:dict) -> dict:
-    return {}
+    pass
 
 # Show all db registry
 def show_all_db():
-    print(DB)
+    for task in DB:
+        print(task)
