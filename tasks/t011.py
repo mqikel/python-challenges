@@ -80,23 +80,83 @@ EJEMPLOS:
     # cliente["pedidos"] -> 3
 """
 
-# from t010 import create_client, register_order
+from t010 import crear_cliente, registrar_pedido
 
 
-# def count_sales(sales:list) -> dict:
-#     ...
+sales = [
+   "camiseta", "gorra", "camiseta", "pantalon", "gorra", "gorra", "zapatillas",
+   "camiseta", "zapatillas", "pantalon", "sudadera", "camiseta", "gorra", "calcetines",
+   "pantalon", "zapatillas", "sudadera", "camiseta", "cinturon", "gorra",
+   "zapatillas", "camiseta", "pantalon", "sudadera", "calcetines", "gorra",
+   "camiseta", "zapatillas", "cinturon", "pantalon", "gorra", "camiseta",
+   "sudadera", "calcetines", "zapatillas", "camiseta", "pantalon", "gorra",
+   "cinturon", "camiseta", "zapatillas", "sudadera", "gorra", "pantalon",
+   "camiseta", "calcetines", "gorra", "zapatillas", "camiseta", "sudadera",
+   "pantalon", "cinturon", "gorra", "camiseta", "zapatillas", "calcetines",
+   "sudadera", "pantalon", "camiseta", "gorra", "zapatillas", "cinturon",
+   "camiseta", "sudadera", "pantalon", "calcetines", "gorra", "camiseta",
+   "zapatillas", "cinturon", "sudadera", "pantalon", "camiseta", "gorra",
+   "calcetines", "zapatillas", "camiseta", "pantalon", "sudadera", "cinturon",
+   "gorra", "camiseta", "zapatillas", "calcetines", "pantalon", "camiseta",
+   "sudadera", "gorra", "cinturon", "zapatillas", "camiseta", "pantalon",
+   "calcetines", "gorra", "camiseta", "sudadera", "zapatillas", "pantalon",
+   "cinturon", "gorra"
+]
 
-# def top_selling_product(tally:dict) -> str:
-#     ...
 
-# def products_above_minimum(tally:dict, minimum:int) -> list:
-#     ...
 
-# def total_units(tally:dict) -> int:
-#     ...
 
-# def register_purchase(client:dict, product:str, tally:dict) -> None:
-#     ...
+def count_sales(sales:list) -> dict:
+   selled_items = {}
+
+   for item in sales:
+      if item in selled_items:
+         selled_items[item] += 1
+      else:
+         selled_items[item] = 1
+         
+   return selled_items
+print(count_sales(sales))
+
+def top_selling_product(tally:dict) -> str:
+   most_selled_item = 0
+   top_item = ""
+   for item in tally:
+      if tally[item] > most_selled_item:
+         most_selled_item = tally[item]
+         top_item = item
+   return top_item
+   
+
+print(top_selling_product(count_sales(sales)))
+
+
+
+
+
+def products_above_minimum(minimum:int) -> list:
+   dict_sales = count_sales(sales)
+   minimum_items = []
+   for item in dict_sales:
+      if dict_sales[item] >= minimum:
+         minimum_items.append(item)
+   return minimum_items
+
+print(products_above_minimum(9))
+
+
+
+def total_units() -> int:
+   pass
+   
+
+def register_purchase(client:dict, product:str) -> None:
+   """
+   1. registrar venta en el cliente
+   2. guardar producto vendido en ventas
+   """
+   pass
+
 
 
 # --- Tests ---

@@ -109,11 +109,11 @@ def registrar_pedido(cliente:dict) -> dict:
     
     
 # --- Pruebas ---
-cliente = crear_cliente("Ana", "ana@mail.com", "Madrid", 0)
-cliente = actualizar_ciudad(cliente, "Valencia")
-cliente = registrar_pedido(cliente)
-cliente = registrar_pedido(cliente)
-print(mostrar_cliente(cliente))
+# cliente = crear_cliente("Ana", "ana@mail.com", "Madrid", 0)
+# cliente = actualizar_ciudad(cliente, "Valencia")
+# cliente = registrar_pedido(cliente)
+# cliente = registrar_pedido(cliente)
+# print(mostrar_cliente(cliente))
 
 
 
