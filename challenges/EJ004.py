@@ -29,3 +29,13 @@ usuarios = [
     "QuantumRider2",
     "SpartanMode5"
 ]
+
+def validar_usuario (usuario:str) -> bool:
+    if len(usuario) >= 6 and len(usuario) <= 12:
+        for letra in usuario:
+            if letra == int:
+                continue
+            elif letra.isupper():
+                continue
+    elif usuario == ("admin", "root", "pedro_sanchez"):
+        pass

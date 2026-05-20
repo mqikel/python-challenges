@@ -148,10 +148,14 @@ print(products_above_minimum(9))
 
 
 def total_units() -> int:
-   pass
+   total = 0
+   for units in sales:
+      total += 1
+   return total
+print(total_units())
    
 
-def register_purchase(client:dict, product:str) -> None:
+def register_purchase(client:dict, product:str) -> dict:
    """
    1. registrar venta en el cliente
    2. guardar producto vendido en ventas
