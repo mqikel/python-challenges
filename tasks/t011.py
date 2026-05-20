@@ -105,11 +105,11 @@ sales = [
 
 
 
-
 def count_sales(sales:list) -> dict:
    selled_items = {}
 
    for item in sales:
+      #aqui estoy comprobando que la clave ya esta en el diccionario
       if item in selled_items:
          selled_items[item] += 1
       else:
@@ -122,6 +122,7 @@ def top_selling_product(tally:dict) -> str:
    most_selled_item = 0
    top_item = ""
    for item in tally:
+      #se establece el item mas vendido al que sea mayor que el anterior
       if tally[item] > most_selled_item:
          most_selled_item = tally[item]
          top_item = item
@@ -154,9 +155,20 @@ def register_purchase(client:dict, product:str) -> None:
    """
    1. registrar venta en el cliente
    2. guardar producto vendido en ventas
+   Tenemos que utilizar la funcion crear_cliente en el primer parametro de la funcion
    """
-   pass
+   sales.append(product)
+   return registrar_pedido(client)
+   
+   
 
+new_client = crear_cliente("migue", "migue@email.com", "Sevilla", 0)
+print(new_client)
+
+new_client = register_purchase(new_client, "zapatillas")
+
+print(new_client)
+print(count_sales(sales))
 
 
 # --- Tests ---

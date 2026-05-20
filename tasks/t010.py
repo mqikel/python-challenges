@@ -65,7 +65,7 @@ def crear_cliente(nombre:str, email:str, ciudad:str, pedidos:int) -> dict:
     y la va a convertir en un diccionario
     """
     cliente = {
-        "\nnombre": nombre,
+        "nombre": nombre,
         "email": email,
         "ciudad": ciudad,
         "pedidos": pedidos
@@ -96,7 +96,7 @@ def actualizar_ciudad(cliente:dict, nueva_ciudad:str) -> dict:
 def registrar_pedido(cliente:dict) -> dict:
     """
     Con esta función vamos a sumar el numero de pedidos al apartado
-    de pedidos del cliente
+    de pedidos del cliente, y devuelve otro diccionario diferente al de crear_cliente
     """
     cliente_nuevo_pedido = {
         "nombre": cliente["nombre"],
