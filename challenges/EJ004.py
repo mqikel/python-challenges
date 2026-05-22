@@ -30,12 +30,37 @@ usuarios = [
     "SpartanMode5"
 ]
 
+def existe_usuario(usuario:str) -> bool:
+    return usuario in usuarios
+
+
 def validar_usuario (usuario:str) -> bool:
-    if len(usuario) >= 6 and len(usuario) <= 12:
-        for letra in usuario:
-            if letra == int:
-                continue
-            elif letra.isupper():
-                continue
-    elif usuario == ("admin", "root", "pedro_sanchez"):
-        pass
+    tiene_mayus = False
+    tiene_num = False
+    palabras_prohibidas = ["admin", "root", "pedro_sanchez"]
+    if existe_usuario(usuario) == False:
+        if " " in usuario:
+            return False
+        for palabra in palabras_prohibidas:
+            if palabra in usuario:
+                return False
+        if len(usuario) >= 6 and len(usuario) <= 12:
+            for character in usuario:
+                if character.isdigit():
+                    tiene_num = True
+                if character.isupper():
+                    tiene_mayus = True
+            return tiene_mayus and tiene_num
+    else:
+        return False
+    
+                
+
+print(validar_usuario("SpartanMode5"))
+print(validar_usuario("juan perez"))
+print(validar_usuario("admin_juan"))
+print(validar_usuario("Trigger24"))
+print(validar_usuario("Trigger"))
+print(validar_usuario("trigger1"))
+
+
